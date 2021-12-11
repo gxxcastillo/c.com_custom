@@ -1,0 +1,36 @@
+root: true
+env:
+  browser: true
+  node: true
+  es2021: true
+settings:
+  react:
+    version: detect
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - prettier
+parser: '@babel/eslint-parser'
+parserOptions:
+  sourceType: module
+  allowImportExportEverywhere: false
+  ecmaFeatures:
+    globalReturn: false
+rules:
+  no-debugger: 0
+  no-unused-vars: 1
+  react/react-in-jsx-scope: 0
+overrides:
+  - files:
+      - '*.ts'
+      - '*.tsx'
+    plugins:
+      - '@typescript-eslint'
+    extends:
+      - plugin:@typescript-eslint/recommended
+    parser: '@typescript-eslint/parser'
+globals:
+  task: readonly
+  describe: readonly
+  before: readonly
+  it: readonly
